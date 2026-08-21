@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Mythova | AI Second Brain for Creators & Video Editors</title>
+  <meta name="description" content="Custom private AI Second Brain by Mythova. Automatically transcribe, extract frameworks, and organize saved reels, shorts, and threads into searchable Notion workspaces. Query your saved ideas instantly.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Custom Styling -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-black text-white font-sans antialiased selection:bg-[#00FF66] selection:text-black overflow-x-hidden">
+
+  <!-- Ambient Glow Effects -->
+  <div class="ambient-glow-top"></div>
+  <div class="ambient-glow-middle top-[1300px] -left-40"></div>
+  <div class="ambient-glow-middle top-[2600px] -right-40"></div>
+  <div class="ambient-glow-middle top-[3900px] -left-40"></div>
+
+  <!-- Background Grid Pattern -->
+  <div class="fixed inset-0 cyber-grid opacity-35 pointer-events-none z-0"></div>
+
+  <!-- =========================================================================
+       NAVIGATION BAR (MYTHOVA BRANDED)
+       ========================================================================= -->
+  <header class="sticky top-0 z-40 backdrop-blur-xl bg-black/85 border-b border-white/10 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-[#00FF66]/10 border border-[#00FF66]/30 flex items-center justify-center text-[#00FF66] group-hover:shadow-[0_0_20px_rgba(0,255,102,0.4)] transition-all">
+          <i data-lucide="brain-circuit" class="w-5 h-5 neon-glow-icon"></i>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-heading font-extrabold text-base sm:text-lg tracking-tight flex items-center gap-1 text-white">
+            MYTHOVA<span class="text-[#00FF66]">.AI</span>
+          </span>
+          <span class="text-[9px] sm:text-[10px] uppercase font-mono tracking-widest text-[#888888]">Agentic Systems</span>
+        </div>
+      </a>
+
+      <!-- Cohort Active Status Badge (Desktop) -->
+      <div class="hidden md:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-xs text-neutral-300 font-mono">
+        <span class="w-2 h-2 rounded-full bg-[#00FF66] animate-pulse"></span>
+        <span>ONBOARDING COHORT ACTIVE</span>
+        <span class="text-[#888888]">•</span>
+        <span class="text-[#00FF66] font-semibold">LIMITED SLOTS</span>
+      </div>
+
+      <!-- Quick Nav Links & CTA -->
+      <div class="flex items-center gap-3 sm:gap-4">
+        <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-[#888888]">
+          <a href="#hook" class="hover:text-[#00FF66] transition-colors">The Hook</a>
+          <a href="#struggle" class="hover:text-[#00FF66] transition-colors">The Struggle</a>
+          <a href="#solution" class="hover:text-[#00FF66] transition-colors">The System</a>
+          <a href="#assistant" class="hover:text-[#00FF66] transition-colors">AI Assistant</a>
+          <a href="#platforms" class="hover:text-[#00FF66] transition-colors">Platforms</a>
+        </nav>
+        <a 
+          href="https://forms.gle/57RgFE1uunkoyk3z7" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="neon-glow-btn px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 sm:gap-2 shadow-lg"
+        >
+          <span>Get Early Access</span>
+          <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       SECTION 1: THE HOOK
+       ========================================================================= -->
+  <section id="hook" class="relative pt-12 pb-20 sm:pt-16 sm:pb-24 lg:pt-28 lg:pb-36 z-10 overflow-hidden">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      
+      <!-- Top Scarcity / Persona Badge -->
+      <div class="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full neon-badge text-[11px] sm:text-xs font-mono font-medium mb-6 sm:mb-8">
+        <i data-lucide="zap" class="w-3.5 h-3.5 animate-pulse"></i>
+        <span>MYTHOVA // CUSTOM AGENTIC INFRASTRUCTURE FOR CREATORS</span>
+      </div>
+
+      <!-- Hook Graphic: Glowing Neon Green Question Mark next to Brain Icon -->
+      <div class="flex items-center justify-center gap-3 sm:gap-4 mb-6 sm:mb-8">
+        <div class="w-14 h-14 sm:w-20 sm:h-20 rounded-2xl bg-[#00FF66]/10 border border-[#00FF66]/40 flex items-center justify-center text-[#00FF66] shadow-[0_0_30px_rgba(0,255,102,0.25)] animate-float">
+          <i data-lucide="help-circle" class="w-8 h-8 sm:w-11 sm:h-11 neon-glow-icon"></i>
+        </div>
+        <div class="text-[#00FF66] text-xl sm:text-2xl font-mono animate-pulse-slow">⇄</div>
+        <div class="w-14 h-14 sm:w-20 sm:h-20 rounded-2xl bg-[#00FF66]/10 border border-[#00FF66]/40 flex items-center justify-center text-[#00FF66] shadow-[0_0_30px_rgba(0,255,102,0.25)] animate-float" style="animation-delay: 0.8s;">
+          <i data-lucide="brain-circuit" class="w-8 h-8 sm:w-11 sm:h-11 neon-glow-icon"></i>
+        </div>
+      </div>
+
+      <!-- Main Hook Heading -->
+      <h1 class="text-3xl sm:text-5xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.12] sm:leading-[1.08] mb-8 sm:mb-10">
+        Where do all your <br class="hidden sm:inline">
+        <span class="relative inline-block">
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-neutral-200 to-[#00FF66]">saved videos</span>
+        </span> 
+        actually go?
+      </h1>
+
+      <!-- Hook Body Lines (Short, Punchy, Line-by-Line) -->
+      <div class="max-w-2xl mx-auto space-y-3 sm:space-y-4 mb-10 sm:mb-12">
+        <div class="p-3.5 sm:p-4 rounded-xl dark-card flex items-center gap-3 text-left">
+          <div class="w-8 h-8 rounded-lg bg-neutral-900 border border-white/10 flex items-center justify-center text-[#888888] flex-shrink-0">
+            <i data-lucide="bookmark" class="w-4 h-4 text-[#00FF66]"></i>
+          </div>
+          <p class="text-sm sm:text-lg font-medium text-white">
+            You save reels. You bookmark posts.
+          </p>
+        </div>
+
+        <div class="p-3.5 sm:p-4 rounded-xl dark-card flex items-center gap-3 text-left">
+          <div class="w-8 h-8 rounded-lg bg-neutral-900 border border-white/10 flex items-center justify-center text-[#888888] flex-shrink-0">
+            <i data-lucide="eye-off" class="w-4 h-4 text-[#FF334B]"></i>
+          </div>
+          <p class="text-sm sm:text-lg font-medium text-[#888888]">
+            But <span class="text-white font-bold">95% of the time</span>, you never look at them again.
+          </p>
+        </div>
+
+        <div class="p-3.5 sm:p-4 rounded-xl dark-card flex items-center gap-3 text-left border-red-500/20">
+          <div class="w-8 h-8 rounded-lg bg-[#FF334B]/10 border border-[#FF334B]/30 flex items-center justify-center text-[#FF334B] flex-shrink-0">
+            <i data-lucide="archive" class="w-4 h-4 warning-glow-icon"></i>
+          </div>
+          <p class="text-sm sm:text-lg font-medium text-neutral-300">
+            They sit in a <span class="text-white font-semibold underline decoration-[#FF334B]/60 underline-offset-4">digital graveyard</span>.
+          </p>
+        </div>
+
+        <div class="p-3.5 sm:p-4 rounded-xl dark-card-neon flex items-center gap-3 text-left">
+          <div class="w-8 h-8 rounded-lg bg-[#00FF66]/20 border border-[#00FF66]/50 flex items-center justify-center text-[#00FF66] flex-shrink-0">
+            <i data-lucide="sparkles" class="w-4 h-4 neon-glow-icon"></i>
+          </div>
+          <p class="text-sm sm:text-lg font-bold text-[#00FF66]">
+            It is time to change that.
+          </p>
+        </div>
+      </div>
+
+      <!-- Button: Neon Green Hook Scroll Button -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+        <a href="#struggle" class="neon-glow-btn w-full sm:w-auto px-7 sm:px-8 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-extrabold uppercase tracking-wider flex items-center justify-center gap-3 group">
+          <span>Scroll to read my story</span>
+          <i data-lucide="arrow-down" class="w-4 h-4 group-hover:translate-y-1 transition-transform"></i>
+        </a>
+        <a 
+          href="https://forms.gle/57RgFE1uunkoyk3z7" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="w-full sm:w-auto px-6 sm:px-7 py-3.5 sm:py-4 rounded-full text-xs font-mono font-bold uppercase tracking-wider border border-white/15 text-neutral-300 hover:border-[#00FF66]/50 hover:text-white transition-all bg-white/[0.02] flex items-center justify-center gap-2"
+        >
+          <span>Join Private Waitlist</span>
+          <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-[#00FF66]"></i>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION 2: THE PROBLEM (MY STRUGGLE)
+       ========================================================================= -->
+  <section id="struggle" class="relative py-16 sm:py-24 lg:py-32 bg-[#050505] border-t border-b border-white/5 z-10">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Graphic: Faded, greyed-out folder icon with a glowing red "!" warning sign -->
+      <div class="flex justify-center mb-6 sm:mb-8">
+        <div class="relative">
+          <!-- Greyed Out Faded Folder -->
+          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-neutral-900/90 border border-white/10 flex items-center justify-center text-neutral-600 opacity-60">
+            <i data-lucide="folder-x" class="w-8 h-8 sm:w-10 sm:h-10"></i>
+          </div>
+          <!-- Glowing Red "!" Warning Badge -->
+          <div class="absolute -top-2.5 -right-2.5 sm:-top-3 sm:-right-3 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#FF334B] flex items-center justify-center text-white font-extrabold shadow-[0_0_20px_rgba(255,51,75,0.8)] border-2 border-black animate-bounce">
+            <i data-lucide="alert-triangle" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Problem Heading -->
+      <div class="text-center mb-10 sm:mb-14">
+        <span class="inline-block px-3 py-1 rounded-full warning-badge text-xs font-mono font-bold uppercase tracking-wider mb-3 sm:mb-4">
+          The Problem • My Struggle
+        </span>
+        <h2 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          I was drowning in my own <br class="hidden sm:inline">
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#FF334B] via-orange-400 to-amber-300">"Saved" folders.</span>
+        </h2>
+      </div>
+
+      <!-- Problem Body Lines (Exact Copy Broken Down Cleanly) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5 sm:gap-4 mb-8 sm:mb-12">
+        
+        <!-- Line 1 -->
+        <div class="p-4 sm:p-5 rounded-2xl dark-card flex items-start gap-3.5 sm:gap-4">
+          <div class="w-8 h-8 rounded-lg bg-neutral-800/80 border border-white/10 flex items-center justify-center text-neutral-400 flex-shrink-0 mt-0.5">
+            <i data-lucide="video" class="w-4 h-4"></i>
+          </div>
+          <div>
+            <h4 class="text-white font-semibold text-sm sm:text-base mb-1">I used to edit videos for a living.</h4>
+            <p class="text-[#888888] text-xs sm:text-sm">Managing client timelines, content calendars, and endless reels daily.</p>
+          </div>
+        </div>
+
+        <!-- Line 2 -->
+        <div class="p-4 sm:p-5 rounded-2xl dark-card flex items-start gap-3.5 sm:gap-4">
+          <div class="w-8 h-8 rounded-lg bg-neutral-800/80 border border-white/10 flex items-center justify-center text-neutral-400 flex-shrink-0 mt-0.5">
+            <i data-lucide="clock" class="w-4 h-4"></i>
+          </div>
+          <div>
+            <h4 class="text-white font-semibold text-sm sm:text-base mb-1">I consumed hours of content daily.</h4>
+            <p class="text-[#888888] text-xs sm:text-sm">Constantly analyzing retention hacks, pacing, sound design, and viral mechanics.</p>
+          </div>
+        </div>
+
+        <!-- Line 3 -->
+        <div class="p-4 sm:p-5 rounded-2xl dark-card flex items-start gap-3.5 sm:gap-4">
+          <div class="w-8 h-8 rounded-lg bg-neutral-800/80 border border-white/10 flex items-center justify-center text-neutral-400 flex-shrink-0 mt-0.5">
+            <i data-lucide="bookmark-plus" class="w-4 h-4 text-neutral-300"></i>
+          </div>
+          <div>
+            <h4 class="text-white font-semibold text-sm sm:text-base mb-1">I saved transitions, hooks, and editing hacks.</h4>
+            <p class="text-[#888888] text-xs sm:text-sm">Thousands of bookmarks piling up across Instagram, YouTube, and X.</p>
+          </div>
+        </div>
+
+        <!-- Line 4 -->
+        <div class="p-4 sm:p-5 rounded-2xl dark-card border-red-500/20 flex items-start gap-3.5 sm:gap-4">
+          <div class="w-8 h-8 rounded-lg bg-[#FF334B]/10 border border-[#FF334B]/30 flex items-center justify-center text-[#FF334B] flex-shrink-0 mt-0.5">
+            <i data-lucide="flame" class="w-4 h-4 warning-glow-icon"></i>
+          </div>
+          <div>
+            <h4 class="text-white font-semibold text-sm sm:text-base mb-1">But when project deadlines hit?</h4>
+            <p class="text-[#FF334B] text-xs sm:text-sm font-medium">Panicked searching, lost inspiration, and hours wasted trying to find that one clip.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Punchline Box -->
+      <div class="p-5 sm:p-8 rounded-2xl bg-gradient-to-b from-neutral-900/90 to-black border border-white/10 relative overflow-hidden">
+        <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-[#FF334B]/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="space-y-3 sm:space-y-4 text-center sm:text-left">
+          <p class="text-base sm:text-xl font-semibold text-white flex items-center justify-center sm:justify-start gap-2.5 sm:gap-3">
+            <i data-lucide="x-circle" class="w-5 h-5 text-[#FF334B] flex-shrink-0"></i>
+            <span>I couldn't find a single useful video.</span>
+          </p>
+          <p class="text-sm sm:text-lg text-[#888888] flex items-center justify-center sm:justify-start gap-2.5 sm:gap-3">
+            <i data-lucide="repeat" class="w-5 h-5 text-neutral-500 flex-shrink-0"></i>
+            <span>I was scrolling endlessly across 4 different apps.</span>
+          </p>
+          <div class="pt-2 border-t border-white/10">
+            <p class="text-lg sm:text-2xl font-heading font-extrabold text-white">
+              "I was hoarding information, <span class="text-[#FF334B]">but starving for ideas.</span>"
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION 3: THE SOLUTION (HOW I FIXED IT)
+       ========================================================================= -->
+  <section id="solution" class="relative py-16 sm:py-24 lg:py-32 z-10 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Graphic: Glowing Neon Green Workflow Diagram -->
+      <div class="text-center mb-10">
+        <div class="inline-flex items-center justify-center gap-2 sm:gap-3 p-3 sm:p-4 rounded-2xl dark-card-neon mb-6 flex-wrap">
+          <!-- Node 1: Link -->
+          <div class="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 rounded-lg bg-black border border-[#00FF66]/40 text-[11px] sm:text-xs font-mono text-[#00FF66]">
+            <i data-lucide="send" class="w-3.5 h-3.5"></i>
+            <span>Telegram Link</span>
+          </div>
+          <span class="text-[#00FF66] font-mono text-xs sm:text-sm">──►</span>
+          <!-- Node 2: Mythova AI -->
+          <div class="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 rounded-lg bg-[#00FF66]/20 border border-[#00FF66] text-[11px] sm:text-xs font-mono text-[#00FF66] shadow-[0_0_15px_rgba(0,255,102,0.3)]">
+            <i data-lucide="cpu" class="w-3.5 h-3.5 neon-glow-icon"></i>
+            <span>Mythova AI Engine</span>
+          </div>
+          <span class="text-[#00FF66] font-mono text-xs sm:text-sm">──►</span>
+          <!-- Node 3: Notion Brief -->
+          <div class="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 rounded-lg bg-black border border-[#00FF66]/40 text-[11px] sm:text-xs font-mono text-[#00FF66]">
+            <i data-lucide="database" class="w-3.5 h-3.5"></i>
+            <span>Structured Notion</span>
+          </div>
+        </div>
+
+        <span class="block text-xs font-mono font-bold text-[#00FF66] uppercase tracking-widest mb-2 sm:mb-3">
+          The Solution • Mythova Custom Systems
+        </span>
+        <h2 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          So, I built the system I <br class="hidden sm:inline">
+          <span class="neon-text-glow">desperately needed.</span>
+        </h2>
+      </div>
+
+      <!-- Solution Body Lines (Line by Line) -->
+      <div class="max-w-3xl mx-auto space-y-2.5 sm:space-y-3 mb-12 sm:mb-16">
+        <div class="p-3.5 sm:p-4 rounded-xl dark-card flex items-center gap-3">
+          <div class="w-6 h-6 rounded-full bg-[#00FF66]/10 text-[#00FF66] flex items-center justify-center flex-shrink-0 text-xs font-bold">1</div>
+          <p class="text-sm sm:text-lg font-medium text-white">The problem wasn't a lack of ideas.</p>
+        </div>
+        <div class="p-3.5 sm:p-4 rounded-xl dark-card flex items-center gap-3">
+          <div class="w-6 h-6 rounded-full bg-[#00FF66]/10 text-[#00FF66] flex items-center justify-center flex-shrink-0 text-xs font-bold">2</div>
+          <p class="text-sm sm:text-lg font-medium text-white">The problem was a lack of automation.</p>
+        </div>
+        <div class="p-3.5 sm:p-4 rounded-xl dark-card flex items-center gap-3">
+          <div class="w-6 h-6 rounded-full bg-[#00FF66]/10 text-[#00FF66] flex items-center justify-center flex-shrink-0 text-xs font-bold">3</div>
+          <p class="text-sm sm:text-lg font-medium text-[#888888]">I am a software developer specializing in <span class="text-white font-semibold">agentic systems</span> at Mythova.</p>
+        </div>
+        <div class="p-3.5 sm:p-4 rounded-xl dark-card flex items-center gap-3">
+          <div class="w-6 h-6 rounded-full bg-[#00FF66]/10 text-[#00FF66] flex items-center justify-center flex-shrink-0 text-xs font-bold">4</div>
+          <p class="text-sm sm:text-lg font-medium text-[#888888]">I build custom workflow automations.</p>
+        </div>
+        <div class="p-3.5 sm:p-4 rounded-xl dark-card-neon flex items-center gap-3">
+          <div class="w-6 h-6 rounded-full bg-[#00FF66] text-black flex items-center justify-center flex-shrink-0 text-xs font-bold">5</div>
+          <p class="text-sm sm:text-lg font-bold text-white">So, I engineered a private <span class="text-[#00FF66]">AI Second Brain</span>.</p>
+        </div>
+        <div class="p-3.5 sm:p-4 rounded-xl dark-card-neon flex items-center gap-3">
+          <div class="w-6 h-6 rounded-full bg-[#00FF66] text-black flex items-center justify-center flex-shrink-0 text-xs font-bold">6</div>
+          <p class="text-sm sm:text-lg font-bold text-[#00FF66]">A system that does the note-taking and thinking for me.</p>
+        </div>
+      </div>
+
+      <!-- =====================================================================
+           DUAL SIMULATOR: TELEGRAM INGEST + NOTION OS
+           ===================================================================== -->
+      <div class="mb-8">
+        <div class="flex items-center justify-between flex-wrap gap-4 mb-5">
+          <div>
+            <h3 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
+              <i data-lucide="layers" class="w-5 h-5 text-[#00FF66]"></i>
+              <span>Live Ingestion Simulation</span>
+            </h3>
+            <p class="text-xs text-[#888888]">See how forwarding a link triggers real-time audio transcription & Notion sync.</p>
+          </div>
+
+          <!-- Format Picker Tabs (Purged of TikTok) -->
+          <div class="flex items-center gap-1.5 sm:gap-2 bg-neutral-900/90 p-1 rounded-xl border border-white/10 w-full sm:w-auto overflow-x-auto">
+            <button data-type="instagram" class="ingest-tab px-3 py-1.5 rounded-lg text-xs font-mono active border border-[#00FF66] text-[#00FF66] bg-[#00FF66]/10 transition-all flex-shrink-0">
+              Instagram Reel
+            </button>
+            <button data-type="youtube" class="ingest-tab px-3 py-1.5 rounded-lg text-xs font-mono text-neutral-400 border border-transparent hover:text-white transition-all flex-shrink-0">
+              YouTube Short
+            </button>
+            <button data-type="twitter" class="ingest-tab px-3 py-1.5 rounded-lg text-xs font-mono text-neutral-400 border border-transparent hover:text-white transition-all flex-shrink-0">
+              X Thread
+            </button>
+          </div>
+        </div>
+
+        <!-- Two-Column Container: Telegram Left / Notion Right -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6">
+          
+          <!-- LEFT: Telegram Bot Simulated Window -->
+          <div class="lg:col-span-5 rounded-2xl telegram-window flex flex-col overflow-hidden border border-[#229ED9]/30">
+            <!-- Telegram Window Header -->
+            <div class="px-4 py-3 bg-[#17212b] border-b border-white/10 flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-full bg-[#00FF66]/20 border border-[#00FF66] flex items-center justify-center text-[#00FF66]">
+                  <i data-lucide="bot" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-white flex items-center gap-1.5">
+                    <span>Mythova Second Brain Bot</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#00FF66]"></span>
+                  </h4>
+                  <span class="text-[10px] text-[#229ED9] font-mono">bot • private webhook</span>
+                </div>
+              </div>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-neutral-400">Telegram API</span>
+            </div>
+
+            <!-- Telegram Chat Area -->
+            <div class="p-4 flex-grow space-y-4 min-h-[300px] sm:min-h-[360px] max-h-[440px] overflow-y-auto bg-[#0e1621]">
+              
+              <!-- System Intro Note -->
+              <div class="text-center">
+                <span class="px-3 py-1 rounded-full bg-black/40 text-[10px] text-neutral-400 font-mono border border-white/5">
+                  Today • Connected to Notion Workspace
+                </span>
+              </div>
+
+              <!-- User Sent Link Bubble -->
+              <div class="flex justify-end">
+                <div class="telegram-bubble-user p-3 max-w-[92%] sm:max-w-[90%] text-xs shadow-md">
+                  <p id="tgUserMsg" class="font-mono text-cyan-200 break-all text-[11px] sm:text-xs">https://instagram.com/reel/C8x9_viral_hook</p>
+                  <span class="text-[9px] text-neutral-300 float-right mt-1 ml-2 font-mono">4:18 PM ✓✓</span>
+                </div>
+              </div>
+
+              <!-- Typing / Processing Indicator -->
+              <div id="tgTypingIndicator" class="hidden flex items-center gap-2">
+                <div class="telegram-bubble-bot p-3 flex items-center gap-2 text-xs">
+                  <div class="flex items-center gap-1">
+                    <div class="telegram-typing-dot"></div>
+                    <div class="telegram-typing-dot"></div>
+                    <div class="telegram-typing-dot"></div>
+                  </div>
+                  <span class="text-[11px] text-[#00FF66] font-mono ml-2">Transcribing audio with Whisper AI...</span>
+                </div>
+              </div>
+
+              <!-- Bot Response Bubble -->
+              <div id="tgBotReply" class="flex items-start gap-2">
+                <div class="telegram-bubble-bot p-3.5 max-w-[94%] border border-white/10 shadow-lg">
+                  <div id="tgBotReplyText">
+                    <div class="space-y-1.5">
+                      <p class="font-bold text-[#00FF66] flex items-center gap-1.5 text-xs">
+                        <span>⚡ Ingestion Complete (1.2s)</span>
+                      </p>
+                      <p class="text-xs text-neutral-200 font-sans">
+                        <strong>Extracted:</strong> "3-Second Visual Contrast Retention Hook"<br>
+                        <strong>Synced to:</strong> <code>Mythova Second Brain / Inbox</code><br>
+                        <strong>Tags:</strong> #HookDesign #VideoEditing #RetentionHacks
+                      </p>
+                    </div>
+                  </div>
+                  <span class="text-[9px] text-neutral-400 block text-right mt-1.5 font-mono">4:18 PM</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Telegram Input Bar -->
+            <div class="p-3 bg-[#17212b] border-t border-white/10 flex items-center gap-2">
+              <input id="tgInput" type="text" readonly value="https://instagram.com/reel/C8x9_viral_hook" class="custom-input w-full px-3 py-2 rounded-lg text-xs font-mono text-neutral-300 truncate">
+              <button id="tgSendBtn" class="p-2.5 rounded-lg bg-[#229ED9] text-white hover:bg-[#229ED9]/80 transition-colors flex-shrink-0">
+                <i data-lucide="send" class="w-4 h-4"></i>
+              </button>
+            </div>
+
+          </div>
+
+          <!-- RIGHT: Realistic Dark Notion OS Document View -->
+          <div class="lg:col-span-7 rounded-2xl notion-window overflow-hidden border border-white/15 flex flex-col">
+            
+            <!-- Notion Top Bar -->
+            <div class="px-4 py-2.5 bg-[#191919] border-b border-white/10 flex items-center justify-between">
+              <div class="flex items-center gap-2 text-xs font-mono text-neutral-400">
+                <span>📁 Mythova Content Vault</span>
+                <span>/</span>
+                <span class="text-white font-medium">Inbox DB</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="px-2 py-0.5 rounded bg-[#00FF66]/10 text-[#00FF66] border border-[#00FF66]/30 text-[10px] font-mono">
+                  LIVE SYNC
+                </span>
+              </div>
+            </div>
+
+            <!-- Notion Page Canvas -->
+            <div id="notionDocPane" class="p-4 sm:p-6 bg-[#141414] flex-grow overflow-y-auto space-y-4 sm:space-y-5 transition-all duration-300">
+              
+              <!-- Page Header & Icon -->
+              <div class="space-y-2 sm:space-y-3">
+                <div class="flex items-center gap-3">
+                  <span class="text-2xl sm:text-3xl p-1.5 sm:p-2 rounded-xl bg-white/5 border border-white/10">🧠</span>
+                  <div>
+                    <h3 id="notionTitle" class="text-base sm:text-xl font-bold text-white leading-tight">
+                      3-Second Visual Contrast Retention Hook
+                    </h3>
+                    <span class="text-[11px] text-[#888888] font-mono">Created by Mythova Agent via Telegram Hook</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Notion Properties Table -->
+              <div class="rounded-xl bg-[#1c1c1c] border border-white/10 overflow-hidden text-xs">
+                
+                <div class="grid grid-cols-3 notion-property-row p-2.5 items-center">
+                  <span class="text-neutral-400 flex items-center gap-1.5 font-mono">
+                    <i data-lucide="layout" class="w-3.5 h-3.5 text-[#00FF66]"></i> Platform
+                  </span>
+                  <span id="notionPlatform" class="col-span-2 text-white font-medium">Instagram Reel</span>
+                </div>
+
+                <div class="grid grid-cols-3 notion-property-row p-2.5 items-center">
+                  <span class="text-neutral-400 flex items-center gap-1.5 font-mono">
+                    <i data-lucide="user" class="w-3.5 h-3.5 text-[#00FF66]"></i> Creator
+                  </span>
+                  <span id="notionCreator" class="col-span-2 text-cyan-300 font-mono">@creatoreconomy</span>
+                </div>
+
+                <div class="grid grid-cols-3 notion-property-row p-2.5 items-center">
+                  <span class="text-neutral-400 flex items-center gap-1.5 font-mono">
+                    <i data-lucide="tag" class="w-3.5 h-3.5 text-[#00FF66]"></i> Categories
+                  </span>
+                  <div id="notionTags" class="col-span-2 flex flex-wrap gap-1.5">
+                    <span class="notion-tag-pill bg-[#00FF66]/10 text-[#00FF66] border border-[#00FF66]/20">#HookDesign</span>
+                    <span class="notion-tag-pill bg-[#00FF66]/10 text-[#00FF66] border border-[#00FF66]/20">#VideoEditing</span>
+                    <span class="notion-tag-pill bg-[#00FF66]/10 text-[#00FF66] border border-[#00FF66]/20">#RetentionHacks</span>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-3 p-2.5 items-center">
+                  <span class="text-neutral-400 flex items-center gap-1.5 font-mono">
+                    <i data-lucide="clock" class="w-3.5 h-3.5 text-[#00FF66]"></i> Audio
+                  </span>
+                  <span id="notionDuration" class="col-span-2 text-neutral-300 font-mono">0:42</span>
+                </div>
+
+              </div>
+
+              <!-- Notion Callout: Core Value & Summary -->
+              <div class="notion-callout p-3.5 sm:p-4 bg-[#191919] border border-white/5 space-y-2">
+                <div class="flex items-center gap-2 text-xs font-mono text-[#00FF66]">
+                  <i data-lucide="sparkles" class="w-4 h-4"></i>
+                  <span class="font-bold uppercase tracking-wider">AI Framework Extraction</span>
+                </div>
+                <p id="notionSummary" class="text-xs text-neutral-200 leading-relaxed font-sans">
+                  Pattern interruption formula combining a 1.8-second 12% camera push-in, on-screen bold text pop, and high-frequency sound hit to spike initial 3-second retention past 85%.
+                </p>
+              </div>
+
+              <!-- Notion Block: Action Steps for Video Editors -->
+              <div class="p-3.5 sm:p-4 rounded-xl bg-[#191919] border border-white/5 space-y-2.5">
+                <span class="text-[11px] font-mono uppercase text-[#00FF66] font-bold block">
+                  🎬 Action Steps For Editor / Timeline:
+                </span>
+                <ul id="notionActionSteps" class="space-y-1.5">
+                  <li class="flex items-start gap-2 text-xs text-neutral-300">
+                    <span class="text-[#00FF66] font-bold">✓</span>
+                    <span>Apply 3-frame jump cut on 0:00.8 mark of video timeline.</span>
+                  </li>
+                  <li class="flex items-start gap-2 text-xs text-neutral-300">
+                    <span class="text-[#00FF66] font-bold">✓</span>
+                    <span>Set bold text animation with 0.15s spring in Premiere/CapCut.</span>
+                  </li>
+                  <li class="flex items-start gap-2 text-xs text-neutral-300">
+                    <span class="text-[#00FF66] font-bold">✓</span>
+                    <span>Drop sub-bass whoosh audio effect on frame 1.</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Collapsible Transcript Block -->
+              <div class="p-3.5 sm:p-4 rounded-xl bg-[#191919] border border-white/5 space-y-2">
+                <span class="text-[11px] font-mono uppercase text-neutral-400 font-bold block">
+                  🎙️ Full Whisper Audio Transcript:
+                </span>
+                <p id="notionTranscript" class="text-xs text-neutral-400 italic font-mono leading-relaxed">
+                  "If your first 3 seconds don't trigger immediate visual and audio pattern interruption, retention drops below 20%. Here is the exact 3-step formula: First, cut straight to the visual climax. Second, place high-contrast text directly at eye level. Third, duck background audio by -6dB..."
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION 3.5: CHAT & QUERY YOUR SAVED SECOND BRAIN
+       ========================================================================= -->
+  <section id="assistant" class="relative py-16 sm:py-24 lg:py-32 bg-[#040404] border-t border-b border-white/5 z-10">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center mb-10 sm:mb-14">
+        <span class="inline-block px-3.5 py-1 rounded-full neon-badge text-xs font-mono font-bold uppercase tracking-wider mb-3">
+          Conversational Intelligence • Two-Way Brain
+        </span>
+        <h2 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-3 sm:mb-4">
+          Ask your Telegram bot <span class="neon-text-glow">anything.</span>
+        </h2>
+        <p class="text-sm sm:text-lg text-[#888888] max-w-2xl mx-auto">
+          It doesn't just store links—it indexes your entire creative taste. Ask for weekly analytics, specific hook recommendations, or past editing techniques.
+        </p>
+      </div>
+
+      <!-- Assistant Interactive Demo Box -->
+      <div class="rounded-2xl sm:rounded-3xl dark-card-neon border border-[#00FF66]/30 overflow-hidden shadow-[0_0_40px_rgba(0,255,102,0.08)]">
+        
+        <!-- Header -->
+        <div class="p-4 sm:p-5 bg-black/80 border-b border-white/10 flex items-center justify-between flex-wrap gap-3">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[#00FF66]/20 border border-[#00FF66] flex items-center justify-center text-[#00FF66]">
+              <i data-lucide="sparkles" class="w-4 h-4 neon-glow-icon"></i>
+            </div>
+            <div>
+              <h4 class="text-xs sm:text-sm font-bold text-white">Mythova AI Second Brain Assistant</h4>
+              <span class="text-[10px] sm:text-[11px] text-[#888888] font-mono">Real-time query engine over your Notion database</span>
+            </div>
+          </div>
+          <span class="px-2.5 py-1 rounded-full bg-[#00FF66]/10 text-[#00FF66] border border-[#00FF66]/30 text-[11px] font-mono font-bold">
+            TRY PRE-BUILT QUERIES ↓
+          </span>
+        </div>
+
+        <div class="p-4 sm:p-8 space-y-4 sm:space-y-6">
+          
+          <!-- Pre-built Question Pills -->
+          <div>
+            <span class="text-xs font-mono uppercase text-[#888888] block mb-2.5">Click any sample query to test live:</span>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3">
+              
+              <button data-query="stats" class="chat-query-btn p-3 rounded-xl bg-neutral-900/90 border border-white/10 hover:border-[#00FF66] text-left transition-all group">
+                <span class="text-xs font-bold text-white block mb-0.5 group-hover:text-[#00FF66] transition-colors">
+                  📊 Weekly Analytics
+                </span>
+                <span class="text-[11px] text-[#888888] block">
+                  "Is week kitne posts save kiye aur kahan se?"
+                </span>
+              </button>
+
+              <button data-query="hook" class="chat-query-btn p-3 rounded-xl bg-neutral-900/90 border border-white/10 hover:border-[#00FF66] text-left transition-all group">
+                <span class="text-xs font-bold text-white block mb-0.5 group-hover:text-[#00FF66] transition-colors">
+                  💡 Hook Recommendation
+                </span>
+                <span class="text-[11px] text-[#888888] block">
+                  "Mujhe SaaS video ke liye hook idea chahiye."
+                </span>
+              </button>
+
+              <button data-query="search" class="chat-query-btn p-3 rounded-xl bg-neutral-900/90 border border-white/10 hover:border-[#00FF66] text-left transition-all group">
+                <span class="text-xs font-bold text-white block mb-0.5 group-hover:text-[#00FF66] transition-colors">
+                  🔍 Semantic Search
+                </span>
+                <span class="text-[11px] text-[#888888] block">
+                  "Find that transition hack I saved 2 weeks ago."
+                </span>
+              </button>
+
+            </div>
+          </div>
+
+          <!-- Live Chat Stream Box -->
+          <div id="assistantChatFeed" class="p-4 sm:p-5 rounded-2xl bg-[#0b1016] border border-white/10 space-y-3.5 sm:space-y-4 max-h-[340px] sm:max-h-[380px] min-h-[200px] overflow-y-auto">
+            
+            <!-- Default Bot Welcome -->
+            <div class="flex items-start gap-2.5">
+              <div class="w-7 h-7 rounded-lg bg-[#00FF66]/10 border border-[#00FF66]/30 flex items-center justify-center text-[#00FF66] flex-shrink-0 text-xs">
+                ⚡
+              </div>
+              <div class="telegram-bubble-bot p-3 sm:p-3.5 max-w-[92%] sm:max-w-[90%] border border-white/10 text-xs text-neutral-200">
+                <p class="font-bold text-white mb-1">Hello Creator! 👋</p>
+                <p class="text-neutral-300 text-xs leading-relaxed">
+                  I have full indexed memory of all your saved Instagram Reels, YouTube Shorts, X Threads, and Notion notes. Click a question above or type your query below!
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Query Input Bar -->
+          <div class="flex items-center gap-2">
+            <input 
+              id="chatAssistantInput" 
+              type="text" 
+              placeholder="Ask anything about your saved content, trends, or editing hacks..." 
+              class="custom-input w-full px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-xl text-xs font-medium"
+            >
+            <button id="chatAssistantSend" class="neon-glow-btn px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 flex-shrink-0">
+              <span>Ask</span>
+              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION 4: WORKS WITH ANY PLATFORM. ANY FORMAT. (4 CLEAN PLATFORMS)
+       ========================================================================= -->
+  <section id="platforms" class="relative py-16 sm:py-24 lg:py-32 bg-[#060606] border-t border-b border-white/5 z-10">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Horizontal row of recognized social media logos: Instagram, YouTube, X (Twitter), LinkedIn -->
+      <div class="mb-12">
+        <p class="text-center text-xs font-mono uppercase tracking-widest text-[#888888] mb-6">
+          Supported Social Platforms & Video Formats
+        </p>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3.5 sm:gap-4">
+          
+          <!-- Instagram -->
+          <div class="p-4 sm:p-5 rounded-2xl dark-card flex flex-col items-center justify-center gap-2 group hover:border-[#00FF66]/50 transition-all">
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-yellow-500 via-pink-500 to-purple-600 flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
+              <i data-lucide="instagram" class="w-6 h-6"></i>
+            </div>
+            <span class="text-sm font-semibold text-white">Instagram</span>
+            <span class="text-[11px] font-mono text-[#888888]">Reels & Posts</span>
+          </div>
+
+          <!-- YouTube -->
+          <div class="p-4 sm:p-5 rounded-2xl dark-card flex flex-col items-center justify-center gap-2 group hover:border-[#00FF66]/50 transition-all">
+            <div class="w-12 h-12 rounded-xl bg-[#FF0000] flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
+              <i data-lucide="youtube" class="w-6 h-6"></i>
+            </div>
+            <span class="text-sm font-semibold text-white">YouTube</span>
+            <span class="text-[11px] font-mono text-[#888888]">Shorts & Longform</span>
+          </div>
+
+          <!-- X (Twitter) -->
+          <div class="p-4 sm:p-5 rounded-2xl dark-card flex flex-col items-center justify-center gap-2 group hover:border-[#00FF66]/50 transition-all">
+            <div class="w-12 h-12 rounded-xl bg-white text-black flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+              <i data-lucide="twitter" class="w-6 h-6"></i>
+            </div>
+            <span class="text-sm font-semibold text-white">X (Twitter)</span>
+            <span class="text-[11px] font-mono text-[#888888]">Threads & Clips</span>
+          </div>
+
+          <!-- LinkedIn -->
+          <div class="p-4 sm:p-5 rounded-2xl dark-card flex flex-col items-center justify-center gap-2 group hover:border-[#00FF66]/50 transition-all">
+            <div class="w-12 h-12 rounded-xl bg-[#0077B5] flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
+              <i data-lucide="linkedin" class="w-6 h-6"></i>
+            </div>
+            <span class="text-sm font-semibold text-white">LinkedIn</span>
+            <span class="text-[11px] font-mono text-[#888888]">Posts & Carousels</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Section Heading -->
+      <div class="text-center mb-10 sm:mb-14">
+        <h2 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-3 sm:mb-4">
+          One link. <span class="text-[#00FF66]">Zero manual effort.</span>
+        </h2>
+        <div class="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-[11px] sm:text-xs font-mono text-neutral-300">
+          <span class="text-[#00FF66] font-bold">Any Platform:</span>
+          <span>IG Reels, YouTube Shorts, X Threads, or LinkedIn Posts.</span>
+        </div>
+      </div>
+
+      <!-- 3-Step Process Breakdown (Line by line) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
+        
+        <!-- Step 1 -->
+        <div class="p-5 sm:p-6 rounded-2xl dark-card relative overflow-hidden group hover:border-[#00FF66]/40 transition-all">
+          <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#00FF66]/10 border border-[#00FF66]/30 flex items-center justify-center text-[#00FF66] font-bold text-xs sm:text-sm mb-4 sm:mb-5">
+            01
+          </div>
+          <h4 class="text-base sm:text-lg font-bold text-white mb-2">Step 1: Forward Link</h4>
+          <p class="text-xs sm:text-sm text-[#888888] leading-relaxed">
+            See a great piece of content? Forward the link to a <span class="text-white font-medium">private Telegram bot</span> in one tap.
+          </p>
+          <div class="mt-4 pt-4 border-t border-white/5 flex items-center gap-2 text-xs font-mono text-neutral-400">
+            <i data-lucide="send" class="w-3.5 h-3.5 text-[#00FF66]"></i>
+            <span>Instant webhook trigger</span>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="p-5 sm:p-6 rounded-2xl dark-card relative overflow-hidden group hover:border-[#00FF66]/40 transition-all">
+          <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#00FF66]/10 border border-[#00FF66]/30 flex items-center justify-center text-[#00FF66] font-bold text-xs sm:text-sm mb-4 sm:mb-5">
+            02
+          </div>
+          <h4 class="text-base sm:text-lg font-bold text-white mb-2">Step 2: AI Extracts Value</h4>
+          <p class="text-xs sm:text-sm text-[#888888] leading-relaxed">
+            The AI agent silently <span class="text-white font-medium">transcribes the audio</span> and extracts the core value and actionable frameworks.
+          </p>
+          <div class="mt-4 pt-4 border-t border-white/5 flex items-center gap-2 text-xs font-mono text-neutral-400">
+            <i data-lucide="cpu" class="w-3.5 h-3.5 text-[#00FF66]"></i>
+            <span>Whisper + LLM synthesis</span>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="p-5 sm:p-6 rounded-2xl dark-card relative overflow-hidden group hover:border-[#00FF66]/40 transition-all">
+          <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#00FF66]/10 border border-[#00FF66]/30 flex items-center justify-center text-[#00FF66] font-bold text-xs sm:text-sm mb-4 sm:mb-5">
+            03
+          </div>
+          <h4 class="text-base sm:text-lg font-bold text-white mb-2">Step 3: Notion Auto-Sync</h4>
+          <p class="text-xs sm:text-sm text-[#888888] leading-relaxed">
+            It automatically tags and organizes the brief directly into your <span class="text-white font-medium">Notion workspace</span>.
+          </p>
+          <div class="mt-4 pt-4 border-t border-white/5 flex items-center gap-2 text-xs font-mono text-neutral-400">
+            <i data-lucide="database" class="w-3.5 h-3.5 text-[#00FF66]"></i>
+            <span>Categorized & tagged</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Section 4 Bottom Summary Callout -->
+      <div class="p-5 sm:p-6 rounded-2xl dark-card-neon text-center">
+        <p class="text-base sm:text-xl font-heading font-bold text-white">
+          All your saved ideas. <span class="text-[#00FF66]">Fully searchable.</span> Ready when you sit down to create.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION 5: THE WAITLIST (HIGH CONVERTING GOOGLE FORM CTA)
+       ========================================================================= -->
+  <section id="waitlist" class="relative py-16 sm:py-24 lg:py-36 z-10 overflow-hidden">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Waitlist Container Card -->
+      <div class="p-6 sm:p-12 rounded-3xl dark-card border border-[#00FF66]/40 shadow-[0_0_60px_rgba(0,255,102,0.15)] relative overflow-hidden text-center">
+        
+        <!-- Background Ambient Glow inside Card -->
+        <div class="absolute -top-24 -right-24 w-60 h-60 bg-[#00FF66]/15 rounded-full blur-3xl pointer-events-none"></div>
+
+        <!-- Graphic: Minimalist Glowing Neon Green Lock Icon -->
+        <div class="flex justify-center mb-5 sm:mb-6">
+          <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-[#00FF66]/10 border border-[#00FF66]/50 flex items-center justify-center text-[#00FF66] shadow-[0_0_25px_rgba(0,255,102,0.3)] animate-pulse-slow">
+            <i data-lucide="lock" class="w-7 h-7 sm:w-8 sm:h-8 neon-glow-icon"></i>
+          </div>
+        </div>
+
+        <!-- Heading: Stop losing your best ideas -->
+        <div class="text-center mb-6 sm:mb-8">
+          <span class="inline-block px-3 py-1 rounded-full neon-badge text-xs font-mono font-bold uppercase tracking-wider mb-3">
+            Mythova Private Access • Bespoke Integration
+          </span>
+          <h2 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-3 sm:mb-4">
+            Stop losing your <span class="neon-text-glow">best ideas.</span>
+          </h2>
+        </div>
+
+        <!-- Body Lines (Scarcity & Exclusivity - Exact Copy) -->
+        <div class="space-y-2.5 max-w-lg mx-auto mb-8 sm:mb-10 text-left font-medium text-xs sm:text-sm md:text-base">
+          <div class="flex items-center gap-3 text-neutral-300">
+            <i data-lucide="check" class="w-4 h-4 text-[#00FF66] flex-shrink-0"></i>
+            <span>I custom-build these agentic systems manually.</span>
+          </div>
+          <div class="flex items-center gap-3 text-neutral-300">
+            <i data-lucide="check" class="w-4 h-4 text-[#00FF66] flex-shrink-0"></i>
+            <span>Therefore, I only onboard a few creators at a time.</span>
+          </div>
+          <div class="flex items-center gap-3 text-neutral-400">
+            <i data-lucide="shield-alert" class="w-4 h-4 text-amber-400 flex-shrink-0"></i>
+            <span>The system is currently closed.</span>
+          </div>
+          <div class="flex items-center gap-3 text-[#00FF66] font-bold">
+            <i data-lucide="arrow-right-circle" class="w-4 h-4 text-[#00FF66] flex-shrink-0"></i>
+            <span>But you can secure your spot in line right now.</span>
+          </div>
+        </div>
+
+        <!-- HIGH IMPACT GOOGLE FORM ACTION BUTTON -->
+        <div class="space-y-4">
+          <a 
+            href="https://forms.gle/57RgFE1uunkoyk3z7" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="neon-glow-btn w-full py-4 sm:py-5 rounded-2xl text-sm sm:text-base font-extrabold uppercase tracking-wider flex items-center justify-center gap-3 shadow-[0_0_35px_rgba(0,255,102,0.5)] group"
+          >
+            <span>Join The Private Waitlist</span>
+            <i data-lucide="external-link" class="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+          </a>
+
+          <!-- Privacy & Trust Micro-Copy -->
+          <div class="pt-2 text-center space-y-1.5">
+            <p class="text-xs text-[#888888] flex items-center justify-center gap-2">
+              <i data-lucide="lock" class="w-3.5 h-3.5 text-[#00FF66]"></i>
+              <span>100% Privacy Guaranteed • Zero Spam • 1-on-1 Custom Onboarding by Mythova</span>
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       CREATOR FAQ SECTION
+       ========================================================================= -->
+  <section class="relative py-16 sm:py-20 bg-[#050505] border-t border-white/5 z-10">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center mb-10 sm:mb-12">
+        <span class="text-xs font-mono font-bold text-[#00FF66] uppercase tracking-widest block mb-2">FAQ</span>
+        <h3 class="text-xl sm:text-3xl font-bold text-white">Frequently Asked Questions</h3>
+      </div>
+
+      <div class="space-y-3.5 sm:space-y-4">
+        
+        <!-- FAQ 1 -->
+        <div class="faq-item rounded-2xl dark-card p-4 sm:p-5 cursor-pointer border border-white/10 transition-all">
+          <div class="faq-header flex items-center justify-between gap-2">
+            <h4 class="text-sm sm:text-base font-semibold text-white">How does forwarding to Telegram work?</h4>
+            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-neutral-400 transition-transform duration-300 flex-shrink-0"></i>
+          </div>
+          <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+            <p class="text-xs sm:text-sm text-[#888888] pt-3 leading-relaxed">
+              You get access to a private, dedicated Telegram bot engineered by Mythova. Whenever you find a good reel or short, simply tap "Share" and send the link to your bot. The agent processes it instantly in the background and responds with the structured brief.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item rounded-2xl dark-card p-4 sm:p-5 cursor-pointer border border-white/10 transition-all">
+          <div class="faq-header flex items-center justify-between gap-2">
+            <h4 class="text-sm sm:text-base font-semibold text-white">Can I really talk to my saved data and ask questions?</h4>
+            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-neutral-400 transition-transform duration-300 flex-shrink-0"></i>
+          </div>
+          <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+            <p class="text-xs sm:text-sm text-[#888888] pt-3 leading-relaxed">
+              Yes! Your Telegram bot has a conversational RAG engine. You can ask for weekly summary reports ("Kitne posts save kiye?"), ask for hook inspiration from your past saves, or search for specific editing techniques.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item rounded-2xl dark-card p-4 sm:p-5 cursor-pointer border border-white/10 transition-all">
+          <div class="faq-header flex items-center justify-between gap-2">
+            <h4 class="text-sm sm:text-base font-semibold text-white">Do I need to know how to code or setup servers?</h4>
+            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-neutral-400 transition-transform duration-300 flex-shrink-0"></i>
+          </div>
+          <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+            <p class="text-xs sm:text-sm text-[#888888] pt-3 leading-relaxed">
+              Zero coding or setup required on your end. Mythova builds, deploys, and manages the entire agentic system and configures your Notion workspace during the 1-on-1 onboarding session.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item rounded-2xl dark-card p-4 sm:p-5 cursor-pointer border border-white/10 transition-all">
+          <div class="faq-header flex items-center justify-between gap-2">
+            <h4 class="text-sm sm:text-base font-semibold text-white">Is my content and Notion workspace private?</h4>
+            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-neutral-400 transition-transform duration-300 flex-shrink-0"></i>
+          </div>
+          <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+            <p class="text-xs sm:text-sm text-[#888888] pt-3 leading-relaxed">
+              Yes, 100%. Each client has an isolated agent container and dedicated API tokens. Your saved links, transcripts, and Notion database are never shared or used to train public models.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       FOOTER (MYTHOVA BRANDED)
+       ========================================================================= -->
+  <footer class="relative py-10 sm:py-12 bg-black border-t border-white/10 z-10 text-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-5 sm:gap-6">
+      
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-[#00FF66]/10 border border-[#00FF66]/30 flex items-center justify-center text-[#00FF66]">
+          <i data-lucide="brain-circuit" class="w-4 h-4"></i>
+        </div>
+        <span class="font-heading font-extrabold text-sm tracking-tight text-white">
+          MYTHOVA<span class="text-[#00FF66]">.AI</span>
+        </span>
+      </div>
+
+      <p class="text-xs text-[#888888] font-mono">
+        © Mythova Agentic Systems • Bespoke AI Second Brain Automations.
+      </p>
+
+      <a href="#hook" class="text-xs font-mono text-neutral-400 hover:text-[#00FF66] transition-colors flex items-center gap-1">
+        <span>Back to top</span>
+        <i data-lucide="arrow-up" class="w-3.5 h-3.5"></i>
+      </a>
+
+    </div>
+  </footer>
+
+  <!-- Initialize Lucide Icons -->
+  <script>
+    lucide.createIcons();
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>
